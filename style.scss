@@ -9,3 +9,8 @@ $fifth-color: #292f36;
 
 $first-size-height: 97vh;
 $first-size_width: 97vw;
+
+body {
+  background-color: $forth-color;
+  display: flex;
+}
