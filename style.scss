@@ -1,16 +1,11 @@
-.italiana-regular {
-  font-family: "Italiana", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.instrument-serif-regular {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+$first-font: "Italiana", sans-serif;
+$second-font: "Instrument Serif", serif;
 
-.instrument-serif-regular-italic {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-}
+$first-color: #4ecdc4;
+$second-color: #f5a623;
+$third-color: #ffe66d;
+$forth-color: #f7fff7;
+$fifth-color: #292f36;
+
+$first-size-height: 97vh;
+$first-size_width: 97vw;
