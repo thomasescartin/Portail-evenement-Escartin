@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Instrument Serif", serif;
+  background-color: #f7fff7;
+  color: #292f36;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark {
+  background-color: #1f1f1f;
+  color: #e8e8e8;
+}
+
+h2,
+h3 {
+  font-family: "Italiana", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  background-color: #f5a623;
+  border: none;
+  padding: 8px 14px;
+  font-family: "Instrument Serif", serif;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+button:hover {
+  background-color: rgb(219.0434782609, 140.3869565217, 9.9565217391);
+}
+
+body.dark button {
+  background-color: rgb(247.2173913043, 185.7347826087, 83.7826086957);
+}
+
+header {
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #4ecdc4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+header button {
+  background-color: #292f36;
+  color: white;
+}
+header button:hover {
+  background-color: rgb(63.0105263158, 72.2315789474, 82.9894736842);
+}
+body.dark header {
+  background: rgb(39.8678414097, 141.1321585903, 133.9559471366);
+}
+
+section {
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+section > div {
+  flex: 1;
+  min-width: 350px;
+}
+
+#events h2,
+#favoris h2 {
+  margin-top: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4ecdc4;
+}
+
+body.dark #events h2,
+body.dark #favoris h2 {
+  border-color: rgb(197.2995594714, 238.7004405286, 235.7665198238);
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 22px;
+}
+.card p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+.card button {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .card {
+  background: #2b2b2b;
+  color: #e8e8e8;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+body.dark .card:hover {
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+.card.favoris {
+  border-left: 5px solid #f5a623;
+}
+
+body.dark .card.favoris {
+  border-left-color: rgb(249.4347826087, 205.4695652174, 132.5652173913);
+}
+
+.modale {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.3s ease forwards;
+}
+.modale .modale-content {
+  background: white;
+  padding: 25px;
+  width: 450px;
+  border-radius: 12px;
+  animation: scale-in 0.25s ease forwards;
+}
+.modale .modale-content h2 {
+  margin-top: 0;
+}
+.modale .modale-content p {
+  margin: 8px 0;
+}
+.modale .modale-content .btn-lien {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 10px 15px;
+  background-color: #f5a623;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.modale .modale-content .btn-lien:hover {
+  background-color: rgb(219.0434782609, 140.3869565217, 9.9565217391);
+}
+.modale .modale-content button.close {
+  margin-top: 12px;
+  background-color: #4ecdc4;
+  color: white;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 8px;
+}
+.modale .modale-content button.close:hover {
+  background-color: rgb(51.1013215859, 180.8986784141, 171.7004405286);
+}
+
+body.dark .modale-content {
+  background: #2b2b2b;
+  color: #e8e8e8;
+}
+body.dark .modale-content button {
+  background: rgb(117.7665198238, 216.2334801762, 209.2555066079);
+}
+body.dark .modale-content .btn-lien {
+  background: rgb(246.7739130435, 181.787826087, 74.0260869565);
+  color: #2b2b2b;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scale-in {
+  from {
+    transform: scale(0.85);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+  header button {
+    margin-top: 10px;
+    width: 100%;
+  }
+  section {
+    flex-direction: column;
+    padding: 20px;
+  }
+  section > div {
+    width: 100%;
+    min-width: unset;
+  }
+  .card {
+    margin: 15px 0;
+    padding: 15px;
+  }
+  .card h3 {
+    font-size: 20px;
+  }
+  .card p {
+    font-size: 14px;
+  }
+  .card button {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .modale .modale-content {
+    width: 90%;
+    padding: 20px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  header {
+    padding: 10px 15px;
+  }
+  header button {
+    padding: 10px;
+    font-size: 14px;
+  }
+  #events h2,
+  #favoris h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .card {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  .card h3 {
+    font-size: 18px;
+  }
+  .modale .modale-content {
+    width: 92%;
+    padding: 18px;
+  }
+  .modale .modale-content button {
+    padding: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */
