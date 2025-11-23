@@ -202,3 +202,60 @@ function afficherFavoris() {
     favorisDiv.appendChild(card);
   });
 }
+//  Modale
+function afficherModale(evt) {
+  if (!evt) return;
+
+  // Supprimer ancienne modale
+  const old = document.querySelector(".modale");
+  if (old) old.remove();
+
+  const modale = document.createElement("div");
+  modale.className = "modale";
+
+  const venueText =
+    evt && evt.venue && evt.venue.venue ? evt.venue.venue : "Non spécifié";
+  const startDate = evt && evt.start_date ? evt.start_date : "Date non définie";
+  const description = evt.description || "Aucune description";
+
+  const content = document.createElement("div");
+  content.className = "modale-content";
+
+  const html = `
+    <h2>${evt.title || "Titre non fourni"}</h2>
+    <p><strong>Date :</strong> ${startDate}</p>
+    <p><strong>Lieu :</strong> ${venueText}</p>
+    <p><strong>Description :</strong><br>${description}</p>
+  `;
+  content.innerHTML = html;
+
+  if (evt.url) {
+    const lien = document.createElement("a");
+    lien.href = evt.url;
+    lien.target = "_blank";
+    lien.rel = "noopener noreferrer";
+    lien.textContent = "Voir l'événement complet";
+    lien.className = "btn-lien";
+    content.appendChild(lien);
+  }
+
+  // fermer
+  const fermer = document.createElement("button");
+  fermer.className = "close";
+  fermer.textContent = "Fermer";
+  fermer.addEventListener("click", () => modale.remove());
+  content.appendChild(fermer);
+
+  // Fermer si un clique en dehors de la modale
+  modale.addEventListener("click", (e) => {
+    if (e.target === modale) modale.remove();
+  });
+
+  modale.appendChild(content);
+  document.body.appendChild(modale);
+}
+
+chargerFavoris();
+afficherFavoris();
+
+chargerEvenements();
